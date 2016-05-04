@@ -1,0 +1,165 @@
+<!-- <div class="row">
+    <div class="text-center" style="margin-top:50px;">
+        <form class="form-inline">
+            <select class="form-control" 
+                    ng-change="areaChanged(area)" 
+                    ng-model="area">
+                <option ng-repeat="item in links" value="{{item.key}}" ng-selected="item.key == 'jonkoping'">{{ item.name }}</option>
+            </select>
+        </form>
+    </div>
+    <div>
+        <canvas id="myChart" style="width:200; height:200;"></canvas>
+    </div>
+    <div class="alert alert-info alert-dismissible" role="alert" style="width:400px; margin-left:auto; margin-right:auto;" ng-show="resultsEmpty">
+      <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+      <strong>Inga händelser!</strong><br/> Allt verkar ha gått till enligt lag & ordning.
+    </div>
+    <ul class="cbp_tmtimeline">
+        <li ng-repeat="report in reports">
+            <time class="cbp_tmtime" datetime="2013-04-11T12:04"><span>{{ report.date }}</span> <span>{{ report.time }}</span></time>
+            <div class="cbp_tmicon"><!-- <i class="fa fa-exclamation-triangle"></i></div>
+            <div class="cbp_tmlabel">
+                <h2>{{ report.title }} <small style="color:white; margin-left:5px;">{{ report.area }}</smalL></h2>
+                <p>{{ report.description }}</p>
+                <a href="{{ report.link }}">Läs mer..</a>
+            </div>
+        </li>
+    </ul>
+</div> -->
+
+<div id="Timeline">
+            <div class="container-fluid clearfix Services">
+                <div class="container clearfix">
+                    <div class="container clearfix TitleSection">
+                        <header class="page-head">
+                            <h1>Tidslinje <small>// Händelser idag</small></h1>
+                        </header>
+                    </div>
+                    <section class="main">
+                        <ul class="timeline">
+                            <li class="event" ng-repeat="report in reports">
+                                <input type="radio" name="tl-group"/>
+                                <label></label>
+                                <div class="thumb {{ getPic(report.title) }}"><span>{{ report.time }}</span></div>
+                                <div class="content-perspective">
+                                    <div class="content">
+                                        <div class="content-inner">
+                                            <h3>{{ report.title }}</h3>
+                                            <p>{{ report.description }} <br/>
+                                                <a href="{{ report.link }}">Läs mer...</a>
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+                            <!-- <li class="event">
+                                <input type="radio" name="tl-group"/>
+                                <label></label>
+                                <div class="thumb user-6"><span>18 Nov</span></div>
+                                <div class="content-perspective">
+                                    <div class="content">
+                                        <div class="content-inner">
+                                            <h3>Lorem ipsum dolor sit amet</h3>
+                                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean nibh erat,
+                                                sagittis sit amet congue at, aliquam eu libero. Integer molestie, turpis
+                                                vel ultrices facilisis, nisi mauris sollicitudin mauris.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="event">
+                                <input type="radio" name="tl-group"/>
+                                <label></label>
+                                <div class="thumb user-3"><span>17 Nov</span></div>
+                                <div class="content-perspective">
+                                    <div class="content">
+                                        <div class="content-inner">
+                                            <h3>Lorem ipsum dolor sit amet</h3>
+                                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean nibh erat,
+                                                sagittis sit amet congue at, aliquam eu libero. Integer molestie, turpis
+                                                vel ultrices facilisis, nisi mauris sollicitudin mauris.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="event">
+                                <input type="radio" name="tl-group"/>
+                                <label></label>
+                                <div class="thumb user-5"><span>16 Nov</span></div>
+                                <div class="content-perspective">
+                                    <div class="content">
+                                        <div class="content-inner">
+                                            <h3>Lorem ipsum dolor sit amet</h3>
+                                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean nibh erat,
+                                                sagittis sit amet congue at, aliquam eu libero. Integer molestie, turpis
+                                                vel ultrices facilisis, nisi mauris sollicitudin mauris.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="event">
+                                <input type="radio" name="tl-group"/>
+                                <label></label>
+                                <div class="thumb user-2"><span>15 Nov</span></div>
+                                <div class="content-perspective">
+                                    <div class="content">
+                                        <div class="content-inner">
+                                            <h3>Lorem ipsum dolor sit amet</h3>
+                                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean nibh erat,
+                                                sagittis sit amet congue at, aliquam eu libero. Integer molestie, turpis
+                                                vel ultrices facilisis, nisi mauris sollicitudin mauris.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="event">
+                                <input type="radio" name="tl-group"/>
+                                <label></label>
+                                <div class="thumb user-7"><span>14 Nov</span></div>
+                                <div class="content-perspective">
+                                    <div class="content">
+                                        <div class="content-inner">
+                                            <h3>Lorem ipsum dolor sit amet</h3>
+                                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean nibh erat,
+                                                sagittis sit amet congue at, aliquam eu libero. Integer molestie, turpis
+                                                vel ultrices facilisis, nisi mauris sollicitudin mauris.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="event">
+                                <input type="radio" name="tl-group"/>
+                                <label></label>
+                                <div class="thumb user-1"><span>13 Nov</span></div>
+                                <div class="content-perspective">
+                                    <div class="content">
+                                        <div class="content-inner">
+                                            <h3>Lorem ipsum dolor sit amet</h3>
+                                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean nibh erat,
+                                                sagittis sit amet congue at, aliquam eu libero. Integer molestie, turpis
+                                                vel ultrices facilisis, nisi mauris sollicitudin mauris.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="event">
+                                <input type="radio" name="tl-group"/>
+                                <label></label>
+                                <div class="thumb user-8"><span>12 Nov</span></div>
+                                <div class="content-perspective">
+                                    <div class="content">
+                                        <div class="content-inner">
+                                            <h3>Lorem ipsum dolor sit amet</h3>
+                                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean nibh erat,
+                                                sagittis sit amet congue at, aliquam eu libero. Integer molestie, turpis
+                                                vel ultrices facilisis, nisi mauris sollicitudin mauris.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </li> -->
+                        </ul>
+                    </section>
+                </div>
+            </div>
+        </div>
